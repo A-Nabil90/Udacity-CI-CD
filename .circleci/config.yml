@@ -203,23 +203,23 @@ jobs:
       
       - destroy-environment
 
-    configure-infrastructure:
-      docker:
-        cimg/base:stable
-      steps:
-        - checkout
-        - install_ansible
-        - add_ssh_keys:
-            fingerprints: ["ac:1a:f2:9e:55:63:46:2c:a7:37:37:7a:8a:04:15:88"]
-        - attach_workspace:
-            at: ~/
-        - run:
-            name: Configure server
-            command: |
-              cd .circleci/ansible
-              cat inventory.txt
-              ansible-playbook -i inventory.txt configure-server.yml
-        - destroy-environment
+  configure-infrastructure:
+    docker:
+      cimg/base:stable
+    steps:
+      - checkout
+      - install_ansible
+      - add_ssh_keys:
+          fingerprints: ["ac:1a:f2:9e:55:63:46:2c:a7:37:37:7a:8a:04:15:88"]
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Configure server
+          command: |
+            cd .circleci/ansible
+            cat inventory.txt
+            ansible-playbook -i inventory.txt configure-server.yml
+      - destroy-environment
 
   #   run-migrations:
   #     docker:
