@@ -4,10 +4,10 @@
     path: ~/backend-app
     state: directory
 
-# - name: "Copying compiled app"
-#   copy:
-#     src: "~/artifact.tar.gz"
-#     dest: "~/artifact.tar.gz"
+- name: "Copying compiled app"
+  copy:
+    src: "~/artifact.tar.gz"
+    dest: "~/backend-app"
 
 - name: "Unarchive backend files"
   unarchive:
