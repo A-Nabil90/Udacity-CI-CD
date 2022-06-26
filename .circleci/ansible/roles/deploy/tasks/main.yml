@@ -7,7 +7,7 @@
 - name: "Copying compiled app"
   copy:
     src: "~/artifact.tar.gz"
-    dest: "~/artifact.tar.gz"
+    dest: "~/artifact.tar.gz" 
 
 - name: "Unarchive backend files"
   unarchive:
