@@ -6,10 +6,10 @@
 
 - name: "Unarchive backend files"
   unarchive:
-    copy: no
+    # copy: no
     src: artifact.tar.gz
     dest: ~/backend-app
-    remote_src: yes
+    # remote_src: yes
 
 - name: "Installing node dependencies"
   shell:
