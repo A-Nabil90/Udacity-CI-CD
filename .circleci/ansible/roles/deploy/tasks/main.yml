@@ -6,24 +6,21 @@
 
 - name: "Copying compiled app"
   copy:
-    src: "~/artifact.tar.gz"
+    src: "artifact.tar.gz"
     dest: "~/backend-app"
 
 - name: "Unarchive backend files"
   unarchive:
-    # copy: no
     src: artifact.tar.gz
     dest: ~/backend-app
-    # remote_src: false
-    # remote_src: yes
 
 - name: "Installing node dependencies"
-  shell:
+  shell: |
     cd ~/backend-app
     npm i
 
 - name: "Executing node app with PM2"
-  shell:
+  shell: |
     cd ~/backend-app/dist
     pm2 stop default
     pm2 start main.js
@@ -32,7 +29,7 @@
 
 - name: print message
   debug:
-    msg: "{{ execute_node.stdout_lines }}"
+    msg: "{{execute_node.stdout_lines}}"
 
 - name: "Configure pm2 to start as service"
   become: true
