@@ -4,17 +4,17 @@
     path: ~/backend-app
     state: directory
 
-- name: "Copying compiled app"
-  copy:
-    src: "~/artifact.tar.gz"
-    dest: "~/artifact.tar.gz"
+# - name: "Copying compiled app"
+#   copy:
+#     src: "~/artifact.tar.gz"
+#     dest: "~/artifact.tar.gz"
 
 - name: "Unarchive backend files"
   unarchive:
     # copy: no
     src: artifact.tar.gz
     dest: ~/backend-app
-    remote_src: false
+    # remote_src: false
     # remote_src: yes
 
 - name: "Installing node dependencies"
