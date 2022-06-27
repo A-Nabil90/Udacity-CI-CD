@@ -50,6 +50,7 @@ async function bootstrap() {
   app.useGlobalFilters(new ErrorFilter());
   await app.listen(config.PORT);
   logger.log(`Listening on port ${config.PORT}.`);
+  console.log('Hello from UdaPeople');
 }
 
 bootstrap();
